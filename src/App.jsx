@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 import Form from './components/Form'
 
@@ -21,7 +21,6 @@ const Image = styled.img`
   margin: 100px auto 0 auto;
   display: block;
 `
-
 const Heading = styled.h1`
   font-family: 'Lato', sans-serif;
   color: #fff;
@@ -43,13 +42,30 @@ const Heading = styled.h1`
 
 function App() {
 
+  const [coins, setCoins] = useState({})
+  const [quote, setQuote] = useState({})
+
+  useEffect(() => {
+    if(Object.keys(coins).length > 0){
+      const apiQuote = async () => {
+        const { coin, cripto } = coins
+        const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cripto}&tsyms=${coin}`
+        const response = await fetch(url)
+        const result = await response.json()
+        setQuote(result.DISPLAY[cripto][coin])
+      }
+      apiQuote()
+    }
+  }, [coins])
 
   return (
     <Container>
       <Image src={img} alt="image criptos" />
       <div>
         <Heading>Criptos Quoter</Heading>
-        <Form />
+        <Form
+          setCoins={setCoins}
+        />
       </div>
     </Container>
   )
