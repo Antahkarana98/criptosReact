@@ -7,5 +7,4 @@ const coins = [
 
 export {
   coins,
-  
 }

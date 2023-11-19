@@ -5,19 +5,19 @@ import { coins } from '../data/coins'
 import Error from './Error'
 
 const InputSubmit = styled.input`
-  background-color: #9497FF;
+  background-color: #66a2fe;
   border: none;
   width: 100%;
   padding: 10px;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   color: #fff;
   transition: background-color .3s ease;
   margin-top: 30px;
   &:hover {
-    background-color: #7A7DFE;
+    background-color: #347fef;
     cursor: pointer;
   }
 `
@@ -67,6 +67,7 @@ const Form = ({setCoins}) => {
       {error && <Error>All fields are required</Error>}
       <form
         onSubmit={handleSubmit}
+        className="form"
       >
 
         <SelectCoins />

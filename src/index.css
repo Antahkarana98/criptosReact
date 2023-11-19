@@ -1,3 +1,31 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body{
-  background: #0D2235;
+  background: #1d1f21;
+  font-family: 'Lato', sans-serif;
+}
+
+.form {
+  background-color: #333e4f;
+  padding: 20px;
+  border-radius: 25px;
+  height: 100%;
+}
+
+.bg-screen {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .bg-screen {
+    height: 100vh;
+  }
 }
